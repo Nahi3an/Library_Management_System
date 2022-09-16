@@ -17,10 +17,11 @@ public class Book {
     private double bookPrice;
     private String category;
     private ArrayList<Author> author = new ArrayList<>();
-    private int numberOfAuthors = 0;
     private Publisher publisher = new Publisher();
     private ArrayList<Member> member = new ArrayList<>();
     private boolean issued = false;
+    private ArrayList<String> issueDate = new ArrayList<>();
+    private ArrayList<String> withDrawDate = new ArrayList<>();
     
     Book(){}
     
@@ -54,14 +55,7 @@ public class Book {
         }
     }
   
-    public void setNumberOfAuhtors(int num){
-        
-       this.numberOfAuthors = num;
-    }
-    public int getNumberOfAuhtors(){
-        
-        return this.numberOfAuthors;
-    }
+    
     public int getBookId(){
         
         return this.ISBN;
@@ -107,7 +101,7 @@ public class Book {
    
     public String toString(){
         
-        return this.ISBN + " " +this.bookTitle + " "+ this.bookPrice;
+        return "ISBN: " + this.ISBN + " Book Title:  " +this.bookTitle + " Book Price: "+ this.bookPrice;
     }
     
     
@@ -137,10 +131,65 @@ public class Book {
         
     }
     
-    
+//    public void setIssueWithDrawDate(int flag, String date){
+//        
+//        if(flag==1){
+//            this.issueDate.add(date);
+//        }else{
+//            
+//            this.withDrawDate.add(date);
+//        }
+//    }
+//    
+//    public void displayIssueDates(){
+//        
+//        if(this.issueDate.size()<0){
+//            
+//            System.out.println("No Issue Data OR With Draw Date Found!");
+//            
+//        }else{
+//    
+//            for(int i=0; i<issueDate.size(); i++){
+//                System.out.println("Issue Date "+ (i+1)+": "+issueDate.get(i));
+//            }
+//
+//        } 
+//        
+//    }
+//    
+//     public void displayWithdrawDates(){
+//        
+//        if(this.withDrawDate.size()<0){
+//            
+//            System.out.println("No With Draw Date Found!");
+//            
+//        }else{
+//    
+//            for(int i=0; i<withDrawDate.size(); i++){
+//                
+//                System.out.println("Withdraw Date "+ (i+1)+": "+withDrawDate.get(i));
+//                
+//            }
+//
+//        } 
+//        
+//    }
+//     
     public void addMember(Member member){
         
        this.member.add(member);
+    }
+    
+    
+    public void displayMember(int memId){
+        
+        for(int i=0; i<member.size(); i++){
+            
+            if(memId==member.get(i).getmemId()){
+                
+                System.out.println(member.get(i).toString());
+            }
+        }
     }
     
     public void dropMember(int memeberId){
@@ -148,7 +197,8 @@ public class Book {
        for(int i=0; i<member.size(); i++){
            
            if(member.get(i).getmemId()==memeberId){
-                  //System.out.println(author.get(i).toString());
+    
+               //System.out.println(author.get(i).toString());
                    //System.out.println("Ok");
                    member.remove(i);
                    break;

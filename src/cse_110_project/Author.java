@@ -57,7 +57,10 @@ public class Author {
     
     public String toString(){
         
-        return this.authorId + " " +this.authorName + " "+ this.authorCountry;
+        return "Author ID: " + this.authorId + " Author Name: " +this.authorName + " Author Country: "+ this.authorCountry;
     }
+    
+    
+    
     
 }

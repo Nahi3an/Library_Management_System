@@ -13,17 +13,17 @@ public class Publisher {
      
      private int publisherId;
      private String name;
-     private String email;
+     private String country;
      
      
      
      Publisher(){}
      
-     Publisher(int publisherId,String name, String email){
+     Publisher(int publisherId,String name, String country){
          
          this.publisherId = publisherId;
          this.name = name;
-         this.email = email;
+         this.country = country;
        
         
      }
@@ -55,7 +55,7 @@ public class Publisher {
  
     public String toString(){
         
-        return  this.name + " "+ this.email ;
+        return  "Publisher ID: "+ this.publisherId+" Publisher Name: "+this.name + " Publisher Country:" + this.country ;
     }
     
 }

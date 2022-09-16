@@ -17,6 +17,8 @@ public class Member {
      private String phone;
      private double memberShipFee;
      private ArrayList<Book> book = new ArrayList<>();
+     private ArrayList<String> issueDate = new ArrayList<>();
+     private ArrayList<String> withDrawDate = new ArrayList<>();
      Member(){}
      
      Member(int memId, String name, String email, String address, String phone, double memberShipFee){
@@ -82,7 +84,7 @@ public class Member {
     
     public String toString(){
         
-        return this.memId + " " + this.name + " "+ this.email + " " + this.phone + " " + this.address;
+        return "Member ID: " + this.memId + " Memeber Name: " + this.name + " Memeber Email:  "+ this.email + " Member Phone: " + this.phone + " Memeber Phone: " + this.address;
     }
     
     public void addBook(Book book){
@@ -93,12 +95,57 @@ public class Member {
     
      public void displayIssuedBook(){
          
-            System.out.println("Display Issued Books: ");
+        System.out.println("Display Issued Books: ");
         for(int i=0; i<book.size(); i++){
         
             System.out.println(book.get(i).toString());
             
         }
+    }
+     
+     public void setIssueWithDrawDate(int flag, String date){
+        
+        if(flag==1){
+            this.issueDate.add(date);
+        }else{
+            
+            this.withDrawDate.add(date);
+        }
+    }
+     
+     public void displayIssueDates(){
+        
+        if(this.issueDate.size()<0){
+            
+            System.out.println("No Issue Data OR With Draw Date Found!");
+            
+        }else{
+    
+            for(int i=0; i<issueDate.size(); i++){
+                System.out.println("Issue Date "+ (i+1)+": "+issueDate.get(i));
+            }
+
+        } 
+        
+    }
+    
+     public void displayWithdrawDates(){
+        
+        if(this.withDrawDate.size()<0){
+            
+            System.out.println("This user has not returned book!");
+            
+        }else{
+    
+            for(int i=0; i<withDrawDate.size(); i++){
+                
+                
+                System.out.println("Withdraw Date "+ (i+1)+": "+withDrawDate.get(i));
+                
+            }
+
+        } 
+        
     }
     
 }
