@@ -14,7 +14,10 @@ public class Librarian {
      private String email;
      private String address;
      private String phone;
-     
+     ArrayList<Member> member = new ArrayList<>();
+     private int numberOfReaders= 0;
+     ArrayList<Book> book = new ArrayList<>();
+     private int numberOfBooks = 0;
      
      Librarian(){}
      
@@ -28,7 +31,10 @@ public class Librarian {
         
      }
      
-  
+     public void setNumberOfReader(int numberOfReaders){
+       
+        this.numberOfReaders = numberOfReaders;
+    }
     public void setEmpId(int empId){
        
         this.empId = empId;
@@ -86,5 +92,20 @@ public class Librarian {
         return this.empId + " " + this.name + " "+ this.email + " " + this.phone + " " + this.address;
     }
     
+    public void addBook(Book book){
+        
+        this.book.add(book);
+        
+    }
+    
+     public void addMember(Member member){
+        
+        this.member.add(member);
+        
+    }
      
+    
+    
+    
 }
+

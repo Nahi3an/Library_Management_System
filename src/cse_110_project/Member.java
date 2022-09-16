@@ -16,16 +16,17 @@ public class Member {
      private String address;
      private String phone;
      private double memberShipFee;
-     
+     private ArrayList<Book> book = new ArrayList<>();
      Member(){}
      
-     Member(int memId, String name, String email, String address, String phone){
+     Member(int memId, String name, String email, String address, String phone, double memberShipFee){
          
          this.memId = memId;
          this.name = name;
          this.email = email;
          this.phone = phone;
          this.address = address;
+         this.memberShipFee = memberShipFee;
         
      }
      
@@ -79,11 +80,25 @@ public class Member {
         return this.address;
     }
     
-    
-    
-   
     public String toString(){
         
         return this.memId + " " + this.name + " "+ this.email + " " + this.phone + " " + this.address;
     }
+    
+    public void addBook(Book book){
+        
+        this.book.add(book);
+        
+    }
+    
+     public void displayIssuedBook(){
+         
+            System.out.println("Display Issued Books: ");
+        for(int i=0; i<book.size(); i++){
+        
+            System.out.println(book.get(i).toString());
+            
+        }
+    }
+    
 }

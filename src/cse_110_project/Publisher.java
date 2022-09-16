@@ -3,14 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package cse_110_project;
-
+import java.util.*;
 /**
  *
  * @author NAHIYAN
  */
 public class Publisher {
     
-   
+     
+     private int publisherId;
      private String name;
      private String email;
      
@@ -18,9 +19,9 @@ public class Publisher {
      
      Publisher(){}
      
-     Publisher(String name, String email){
+     Publisher(int publisherId,String name, String email){
          
-       
+         this.publisherId = publisherId;
          this.name = name;
          this.email = email;
        

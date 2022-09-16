@@ -16,11 +16,14 @@ public class Book {
     private String bookTitle;
     private double bookPrice;
     private String category;
+    private ArrayList<Author> author = new ArrayList<>();
     private int numberOfAuthors = 0;
-    private int issueNumber = 0;
-    Date [] dates = new Date[2];
+    private Publisher publisher = new Publisher();
+    private ArrayList<Member> member = new ArrayList<>();
+    private boolean issued = false;
     
     Book(){}
+    
     Book(int bookId,String bookTitle,double bookPrice, String category){
         
         this.ISBN = bookId;
@@ -29,6 +32,31 @@ public class Book {
         this.category = category;
        
 
+    }
+    
+    public void setStatus(boolean issued){
+        
+        this.issued = issued;
+    }
+    
+    public boolean getStatus(){
+        
+        return this.issued;
+    }
+    
+    public void displayStatus(){
+        
+        if(this.issued){
+            System.out.println("N/A");
+        }else{
+
+            System.out.println("Available");
+        }
+    }
+  
+    public void setNumberOfAuhtors(int num){
+        
+       this.numberOfAuthors = num;
     }
     public int getNumberOfAuhtors(){
         
@@ -81,5 +109,54 @@ public class Book {
         
         return this.ISBN + " " +this.bookTitle + " "+ this.bookPrice;
     }
+    
+    
+    public void addAuthor(Author author){
+        
+        this.author.add(author);
+        
+    }
+    
+    public void addPublsiher(Publisher publisher){
+        this.publisher = publisher;
+    }
+    
+    public void displayAuthor(){
+        
+        for(int i=0; i<author.size(); i++){
+            
+            System.out.println("Author No. "+(i+1));
+            System.out.println(author.get(i).toString());
+            
+        }
+    }
+    
+    public void displayPublisher(){
+        
+         System.out.println(this.publisher.toString());
+        
+    }
+    
+    
+    public void addMember(Member member){
+        
+       this.member.add(member);
+    }
+    
+    public void dropMember(int memeberId){
+        
+       for(int i=0; i<member.size(); i++){
+           
+           if(member.get(i).getmemId()==memeberId){
+                  //System.out.println(author.get(i).toString());
+                   //System.out.println("Ok");
+                   member.remove(i);
+                   break;
+           }
+          
+       }     
+        
+    }
+   
     
 }
